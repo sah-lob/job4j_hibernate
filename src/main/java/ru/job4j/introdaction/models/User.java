@@ -1,4 +1,4 @@
-package ru.job4j.models;
+package ru.job4j.introdaction.models;
 
 import java.sql.Timestamp;
 

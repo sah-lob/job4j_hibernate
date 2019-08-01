@@ -1,6 +1,6 @@
-package ru.job4j;
+package ru.job4j.introdaction;
 import org.hibernate.cfg.Configuration;
-import ru.job4j.models.User;
+import ru.job4j.introdaction.models.User;
 import java.sql.Timestamp;
 
 public class HibernateRun {
