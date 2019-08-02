@@ -18,7 +18,7 @@ public class HibernateRun {
         session.saveOrUpdate(user);
         session.delete(user);
         var res = session.createQuery("from User", User.class).list();
-        System.out.println(res.toString());
+        System.out.println(res.size());
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();

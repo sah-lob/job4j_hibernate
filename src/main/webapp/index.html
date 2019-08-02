@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ToDoList</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<script>
+    $(function(){
+        loadItems();
+    });
+
+    function loadItems() {
+        resetTable();
+        var check = document.getElementById("check");
+        var id;
+        var date;
+        $.ajax({
+            url: "./todo",
+            type: "GET",
+            success: function (data) {
+                console.log(data);
+                $.each(data, function (indexInArray, value) {
+                    date = new Date(value.created).toLocaleDateString();
+                    id = value.id;
+                    if (value.done && check.checked === true) {
+                        $('#table tr:last').after(
+                            '<tr><td>' + value.id
+                            + '</td><td>' + value.description
+                            + '</td><td>' + date
+                            + '</td><td><input type="checkbox" name="checkDone" id="' + value.id +'" checked></td></tr>');
+                    } else if (!value.done) {
+                        $('#table tr:last').after(
+                            '<tr><td>' + value.id
+                            + '</td><td>' + value.description
+                            + '</td><td>' + date
+                            + '</td><td><input type="checkbox" name="checkDone" id="' + value.id +'"></td></tr>');
+                    }
+
+                })
+
+            }
+        })
+    }
+
+    function resetTable() {
+        $("#table tr").not(":first").remove();
+    }
+
+    function validate() {
+        var description = document.getElementById("desc").value;
+        console.log(description);
+        var result = true;
+        if (description === "") {
+            alert("Enter description for new Task!");
+            result = false;
+        }
+        return result;
+    }
+
+    $(document).on('click', 'input[name=checkDone]', function () {
+        var itemId = $(this).attr('id');
+        console.log(itemId + $(this).is(':checked'));
+        $.ajax({
+            url: "./editStatus",
+            type: "GET",
+            contentType: 'text/html',
+            data: ({itemId: itemId, itemStatus: $(this).is(':checked')})
+        });
+    });
+</script>
+
+
+
+<body>
+<div class="container">
+    <h2 align="center" id="main">Items List</h2>
+    <br>
+    <table class="table table-bordered" id="table">
+        <tr>
+            <th>Item ID</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Status</th>
+        </tr>
+    </table>
+    <br>
+    <form>
+        <label>Show all Items</label>
+        <input type="checkbox" id="check" onclick="loadItems()">
+    </form>
+    <br>
+    <form action="./todo" method="post">
+        <label for="desc">Enter description for the new Task:</label>
+        <input type="text" name="description" id="desc">
+        <button type="submit" onclick="return validate()">Submit</button>
+    </form>
+    <br>
+</div>
+</body>
+</html>
