@@ -37,7 +37,7 @@ public class DBStore implements Store {
             item.setDone(done);
             session.update(item);
             return true;
-        } );
+        });
     }
 
     private <T> T tx(final Function<Session, T> command) {
