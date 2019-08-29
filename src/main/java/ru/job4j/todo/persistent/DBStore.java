@@ -10,13 +10,12 @@ import java.util.function.Function;
 
 public class DBStore implements Store {
 
-    private static DBStore dbStore = new DBStore();
-
-    private SessionFactory factory = new Configuration().configure().buildSessionFactory();
+    private final static DBStore DB_STORE = new DBStore();
+    private final SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
 
     public static DBStore getInstance() {
-        return dbStore;
+        return DB_STORE;
     }
 
     @Override

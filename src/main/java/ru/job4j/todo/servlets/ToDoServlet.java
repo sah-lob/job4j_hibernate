@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class ToDoServlet extends HttpServlet {
 
-    private DBStore store = DBStore.getInstance();
+    private final DBStore store = DBStore.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

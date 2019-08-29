@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class EditStatusServlet extends HttpServlet {
 
-    private Store store = DBStore.getInstance();
+    private final Store store = DBStore.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
