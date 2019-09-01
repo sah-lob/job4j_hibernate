@@ -26,5 +26,4 @@ public interface CarStoreController {
     boolean validatePerson(Person person);
     Person getPerson(String login);
     boolean editPerson(String login, String fio, String number);
-    void testList(int size);
 }

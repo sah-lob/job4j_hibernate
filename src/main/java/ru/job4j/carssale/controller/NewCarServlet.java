@@ -15,7 +15,6 @@ public class NewCarServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
         var image = req.getParameter("string");
         var brand = req.getParameter("brand");
         var model = req.getParameter("model");

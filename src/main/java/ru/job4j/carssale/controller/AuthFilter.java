@@ -18,6 +18,7 @@ public class AuthFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpSession session = request.getSession();
+        servletResponse.setCharacterEncoding("UTF-8");
         if (request.getRequestURI().contains("login.html") || request.getRequestURI().contains("auth")) {
             chain.doFilter(servletRequest, servletResponse);
         } else {

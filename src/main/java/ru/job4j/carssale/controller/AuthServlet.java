@@ -3,7 +3,6 @@ package ru.job4j.carssale.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ru.job4j.carssale.models.Person;
 import ru.job4j.carssale.persistence.CarController;
-import ru.job4j.carssale.persistence.memory.MemoryCarStoreController;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +16,6 @@ public class AuthServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setCharacterEncoding("UTF-8");
         var sb = new StringBuilder();
         try (var reader = req.getReader()) {
             if (reader != null) {

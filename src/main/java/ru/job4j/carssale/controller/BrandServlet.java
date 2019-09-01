@@ -16,7 +16,6 @@ public class BrandServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/json");
         var pw = resp.getWriter();
         var brands = controller.getBrands();

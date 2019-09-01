@@ -22,16 +22,6 @@ public class MemoryUsersStore implements UsersStore {
         hashMap.put(person.getLogin(), person);
     }
 
-//    @Override
-//    public Map<String, Person> findAll() {
-//        return hashMap;
-//    }
-
-//    @Override
-//    public Person findByLogin(String login) {
-//        return hashMap.get(login);
-//    }
-
     @Override
     public boolean isExists(String login) {
         return false;
@@ -56,16 +46,6 @@ public class MemoryUsersStore implements UsersStore {
         p.setPhone(number);
         return true;
     }
-
-//    @Override
-//    public boolean editPerson(String login, String fio, String number) {
-//        return false;
-//    }
-
-//    @Override
-//    public String[] getFioAndNumber(String login) {
-//        return new String[0];
-//    }
 
     @Override
     public Person getPerson(String login) {

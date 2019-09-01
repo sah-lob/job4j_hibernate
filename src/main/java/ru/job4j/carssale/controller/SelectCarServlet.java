@@ -15,7 +15,6 @@ public class SelectCarServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/json");
         int page = Integer.parseInt(req.getParameter("page"));
         int id = Integer.parseInt(req.getParameter("id"));

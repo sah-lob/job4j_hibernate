@@ -1,7 +1,7 @@
 package ru.job4j.carssale.persistence.interfaces;
 
 import ru.job4j.carssale.models.Person;
-import java.util.Map;
+
 
 public interface UsersStore {
     void add(Person person);
