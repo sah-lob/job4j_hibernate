@@ -41,7 +41,6 @@ public class DBUsersStore implements UsersStore {
 
     @Override
     public boolean editPerson(String login, String fio, String number) {
-        System.out.println("волосатый пенис");
         var sql = "UPDATE  persons SET phone = '" + number + "', fio = '" + fio + "' WHERE login = '" + login + "'";
         this.tx(session -> session.createSQLQuery(sql).executeUpdate());
         return false;

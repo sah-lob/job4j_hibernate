@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import ru.job4j.carssale.models.BrandAndModel;
 import ru.job4j.carssale.persistence.interfaces.BrandStore;
 
 import java.util.List;
@@ -27,13 +28,12 @@ public class DBBrandStore implements BrandStore {
 
     @Override
     public void add(String brand, String model) {
-        String sql = "INSERT INTO brands\n"
-                + "(brand, model)\n"
-                + "SELECT '" + brand + "', '" + model + "'\n"
-                + "WHERE\n" + "NOT EXISTS (\n"
-                + "SELECT id FROM brands WHERE brand = '" + brand + "'\n"
-                + ");";
-        this.tx(session -> session.createSQLQuery(sql).executeUpdate());
+        var sql = "SELECT brand FROM brands WHERE brand = '" + brand + "' AND model = '" + model + "';";
+        var list = this.tx(session -> session.createSQLQuery(sql).list());
+        if (list.size() == 0) {
+            var brandAndModel = new BrandAndModel(brand, model);
+            this.tx(session -> session.save(brandAndModel));
+        }
     }
 
     @Override

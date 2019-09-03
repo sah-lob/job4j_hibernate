@@ -11,6 +11,13 @@ public class Person {
     private String description;
     private String phone;
 
+    public Person(String login, String fio, String password, String description, String phone) {
+        this.login = login;
+        this.fio = fio;
+        this.password = password;
+        this.description = description;
+        this.phone = phone;
+    }
 
     public Person() {
     }
