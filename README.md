@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/sah-lob/job4j_hibernate.svg?branch=master)](https://travis-ci.org/sah-lob/job4j_hibernate)
 [![codecov](https://codecov.io/gh/sah-lob/job4j_hibernate/branch/master/graph/badge.svg)](https://codecov.io/gh/sah-lob/job4j_hibernate)
+[codemetrics-process-sloc](https://github.com/maxdow/codemetrics-process-sloc)
 
 Курс на job4j. 
 
