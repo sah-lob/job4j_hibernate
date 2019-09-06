@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/sah-lob/job4j_hibernate.svg?branch=master)](https://travis-ci.org/sah-lob/job4j_hibernate)
+
+
 Курс на job4j. 
 
 Гид по репозиторию. 
