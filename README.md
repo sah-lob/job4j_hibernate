@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/sah-lob/job4j_hibernate.svg?branch=master)](https://travis-ci.org/sah-lob/job4j_hibernate)
 [![codecov](https://codecov.io/gh/sah-lob/job4j_hibernate/branch/master/graph/badge.svg)](https://codecov.io/gh/sah-lob/job4j_hibernate)
-[![Minified size](http://img.shields.io/badge/size-6,1K-blue.svg)](https://github.com/sah-lob/job4j_hibernate)
+[![Minified size](http://img.shields.io/badge/size-4,1K-blue.svg)](https://github.com/sah-lob/job4j_hibernate)
 
 Курс на job4j. 
 
